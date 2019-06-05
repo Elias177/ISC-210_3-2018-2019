@@ -24,7 +24,7 @@ public class CannonBehavior : MonoBehaviour
         _offsetPoints = new Vector2(_mousePosition.x - _cameraPoints.x, _mousePosition.y - _cameraPoints.y);
         _angle = Mathf.Atan2(_offsetPoints.y, _offsetPoints.x) * Mathf.Rad2Deg;
         
-        if (_angle > -183 && _angle < 0)
+        if (_angle > -169 && _angle < -10)
         {
             transform.rotation = Quaternion.Euler(0, 0, _angle);
         }
@@ -38,9 +38,11 @@ public class CannonBehavior : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            Debug.Log("In");
-            Instantiate(ball, gameObject.transform.GetChild(0).position, Quaternion.identity);
-            Debug.Log("Out");
+
+            ball.transform.SetParent(null);
+            ball.GetComponent<Rigidbody>().useGravity = true;
+            ball.SetActive(true);
+
         }
     }
 }

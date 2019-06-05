@@ -121,5 +121,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc2d29edd9a20384a9068ba6e2512e3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _velX: 5
-  KillPlane: {fileID: 0}

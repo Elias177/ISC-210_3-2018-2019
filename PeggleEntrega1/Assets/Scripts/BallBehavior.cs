@@ -6,6 +6,8 @@ public class BallBehavior : MonoBehaviour
 {
 
     private Rigidbody _ball;
+
+    public GameObject Head;
     
     
     // Start is called before the first frame update
@@ -17,22 +19,15 @@ public class BallBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Fire1"))
-        {
-          //  _ball.AddForce(10, -10, 0, ForceMode.Impulse);
 
-        }
-        _ball.AddForce(100, -10, 0, ForceMode.Force);
+          //_ball.AddForce(Head.transform.position.x * -1, -1 * Head.transform.position.y, Head.transform.position.z, ForceMode.Impulse);
+       
+
     }
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "KillPlane")
-        {
-            Debug.Log("COL");
-            Destroy(gameObject);
 
-        }
     }
 
 }
