@@ -11,6 +11,7 @@ public class DeadZoneController : MonoBehaviour
     public GlobalScript GlobalScript;
     private bool _isLeftDeadZonel;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +23,8 @@ public class DeadZoneController : MonoBehaviour
         if (other.name != "Ball")
             return;
 
-        GlobalScript.IncrementScore(_isLeftDeadZonel);
+        GlobalScript.IncrementScore(_isLeftDeadZonel,true);
 
-        
 
         Ball.transform.SetParent(_isLeftDeadZonel ? RightPlayer.transform : LeftPlayer.transform);
 

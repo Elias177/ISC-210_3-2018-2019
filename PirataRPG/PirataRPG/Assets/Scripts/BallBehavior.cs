@@ -8,6 +8,7 @@ public class BallBehavior : MonoBehaviour
 
     private float _startingSpeed =  10f;
     private bool _wait = true;
+    public AudioSource Boop;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,10 @@ public class BallBehavior : MonoBehaviour
         }
     }
 
+    public void OnCollisionEnter(Collision other)
+    {
+        Boop.Play();
+    }
 
     public void UpdateBallState()
     {

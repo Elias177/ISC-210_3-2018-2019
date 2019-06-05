@@ -9,6 +9,8 @@ public class GlobalScript : MonoBehaviour
 
     public TextMesh LeftScoreText;
     public TextMesh RightScoreText;
+    public AudioSource Error;
+    public AudioSource Success;
 
     // Start is called before the first frame update
     void Start()
@@ -23,18 +25,27 @@ public class GlobalScript : MonoBehaviour
         
     }
 
-    public void IncrementScore(bool IsLeftPlayer)
+    public void IncrementScore(bool IsLeftPlayer, bool oneplayer)
     {
         if (IsLeftPlayer)
         {
             LeftScore++;
             LeftScoreText.text = LeftScore.ToString();
+
+            if (oneplayer)
+                Error.Play();
+            else
+                Success.Play();
+
+            
         }
 
         else
         {
             RightScore++;
             RightScoreText.text = RightScore.ToString();
+
+            Success.Play();
 
         }
 

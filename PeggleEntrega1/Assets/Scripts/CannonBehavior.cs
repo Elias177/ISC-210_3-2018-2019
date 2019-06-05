@@ -42,7 +42,7 @@ public class CannonBehavior : MonoBehaviour
             ball.transform.SetParent(null);
             ball.GetComponent<Rigidbody>().useGravity = true;
             ball.SetActive(true);
-
+           
         }
     }
 }
