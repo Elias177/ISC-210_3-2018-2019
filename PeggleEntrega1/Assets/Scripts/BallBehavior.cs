@@ -20,9 +20,6 @@ public class BallBehavior : MonoBehaviour
     void Update()
     {
 
-          //_ball.AddForce(Head.transform.position.x * -1, -1 * Head.transform.position.y, Head.transform.position.z, ForceMode.Impulse);
-       
-
     }
 
     void OnCollisionEnter(Collision collision)

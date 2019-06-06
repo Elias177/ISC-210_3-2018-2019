@@ -10,6 +10,7 @@ public class CannonBehavior : MonoBehaviour
     private Vector2 _offsetPoints;
     public GameObject ball;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,13 +37,15 @@ public class CannonBehavior : MonoBehaviour
 
     public void ShootBall()
     {
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetMouseButtonUp(0) && !ball.activeSelf)
         {
 
             ball.transform.SetParent(null);
             ball.GetComponent<Rigidbody>().useGravity = true;
             ball.SetActive(true);
-           
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            ball.GetComponent<Rigidbody>().AddForce(ray.origin.x, 0, 0, ForceMode.Impulse);
+            
         }
     }
 }
