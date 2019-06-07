@@ -9,6 +9,7 @@ public class PlaneBehavior : MonoBehaviour
     public GameObject Ball;
     public GameObject Head;
     public GameObject BallSpawn;
+    public GameObject DeadBalls;
 
     // Start is called before the first frame update
     void Start()
@@ -24,9 +25,16 @@ public class PlaneBehavior : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Ball")
+        if (collision.gameObject.tag == "Ball" && gameObject.name != "BucketPlane")
         {
 
+            Ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            Ball.transform.position = DeadBalls.transform.position;
+            Ball.SetActive(false);
+        }
+
+        if (collision.gameObject.tag == "Ball" && gameObject.name == "BucketPlane")
+        {
             Ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
             Ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
             Ball.transform.position = BallSpawn.transform.position;
