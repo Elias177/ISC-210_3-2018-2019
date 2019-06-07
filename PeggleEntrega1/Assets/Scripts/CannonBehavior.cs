@@ -8,7 +8,8 @@ public class CannonBehavior : MonoBehaviour
     private float _angle;
     private Vector3 _cameraPoints;
     private Vector2 _offsetPoints;
-    public GameObject ball;
+    public GameObject Ball;
+   
 
 
     // Start is called before the first frame update
@@ -37,14 +38,17 @@ public class CannonBehavior : MonoBehaviour
 
     public void ShootBall()
     {
-        if (Input.GetMouseButtonUp(0) && !ball.activeSelf)
+        if (Input.GetMouseButtonUp(0) && !Ball.activeSelf)
         {
 
-            ball.transform.SetParent(null);
-            ball.GetComponent<Rigidbody>().useGravity = true;
-            ball.SetActive(true);
+            Ball.transform.SetParent(null);
+            Ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            Ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+
+            Ball.GetComponent<Rigidbody>().useGravity = true;
+            Ball.SetActive(true);
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            ball.GetComponent<Rigidbody>().AddForce(ray.origin.x, 0, 0, ForceMode.Impulse);
+            Ball.GetComponent<Rigidbody>().AddForce(ray.origin.x, 0, 0, ForceMode.Impulse);
             
         }
     }
