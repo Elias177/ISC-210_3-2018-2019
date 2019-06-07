@@ -15,19 +15,19 @@ public class BucketScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.transform.position.x <= -4)
+        if (gameObject.transform.position.x <= -4.4f)
             _switch = true;
 
         if (gameObject.transform.position.x >= 4)
             _switch = false;
 
         if (_switch)
-            transform.Translate(Vector3.back * 0.1f);
+            transform.Translate(Vector3.back * 0.04f);
        
 
         if (!_switch)
-            transform.Translate(Vector3.forward * 0.1f);
+            transform.Translate(Vector3.forward * 0.04f);
 
-        Debug.Log(gameObject.transform.position.x);
+
     }
 }

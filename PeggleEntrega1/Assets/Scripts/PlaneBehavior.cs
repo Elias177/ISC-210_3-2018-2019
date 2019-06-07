@@ -6,10 +6,9 @@ using Vector3 = UnityEngine.Vector3;
 
 public class PlaneBehavior : MonoBehaviour
 {
-    public GameObject Ball;
-    public GameObject Head;
     public GameObject BallSpawn;
     public GameObject DeadBalls;
+    public GameObject BallQueue;
 
     // Start is called before the first frame update
     void Start()
@@ -23,21 +22,23 @@ public class PlaneBehavior : MonoBehaviour
         
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.tag == "Ball" && gameObject.name != "BucketPlane")
+        if (other.gameObject.tag == "Ball" && gameObject.name == "KillPlane")
         {
 
-            Ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            Ball.transform.position = DeadBalls.transform.position;
-            Ball.SetActive(false);
+            other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            other.gameObject.transform.position = DeadBalls.transform.position;
+            other.gameObject.SetActive(false);
+            other.gameObject.transform.SetParent(DeadBalls.transform);
         }
 
-        if (collision.gameObject.tag == "Ball" && gameObject.name == "BucketPlane")
+        if (other.gameObject.tag == "Ball" && gameObject.name == "BucketPlane")
         {
-            Ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
-            Ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
-            Ball.transform.position = BallSpawn.transform.position;
+            other.gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
+            other.gameObject.transform.position = BallSpawn.transform.position;
+            other.gameObject.transform.SetParent(BallQueue.transform);
         }
     }
 

@@ -8,14 +8,15 @@ public class CannonBehavior : MonoBehaviour
     private float _angle;
     private Vector3 _cameraPoints;
     private Vector2 _offsetPoints;
-    public GameObject Ball;
+    private GameObject Ball;
+    public GameObject BallQueue;
    
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -38,8 +39,15 @@ public class CannonBehavior : MonoBehaviour
 
     public void ShootBall()
     {
-        if (Input.GetMouseButtonUp(0) && !Ball.activeSelf)
+        if (Input.GetMouseButtonUp(0))
         {
+            //If no children left game over.
+            Ball = BallQueue.transform.GetChild(0).gameObject;
+            Ball.transform.SetParent(gameObject.transform.GetChild(0));
+            Ball.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            Ball.transform.position = gameObject.transform.GetChild(0).transform.position;
+            Ball.GetComponent<Rigidbody>().useGravity = false;
+            Ball.SetActive(false);
 
             Ball.transform.SetParent(null);
             Ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
