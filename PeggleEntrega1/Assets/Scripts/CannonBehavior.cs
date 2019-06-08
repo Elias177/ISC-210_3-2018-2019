@@ -16,7 +16,7 @@ public class CannonBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -39,6 +39,7 @@ public class CannonBehavior : MonoBehaviour
 
     public void ShootBall()
     {
+
         if (Input.GetMouseButtonUp(0))
         {
             //If no children left game over.
