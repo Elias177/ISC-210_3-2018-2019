@@ -26,14 +26,12 @@ public class GlobalScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(2))
+        if (Input.GetMouseButtonDown(1))
         {
             Score s = new Score();
-            s.name = "Unity";
-            s.score = 100f;
             StartCoroutine(SendRequest("http://localhost:2468/api/Score/GetScores"));
             Debug.Log("********************");
-            StartCoroutine(PostRequest("http://localhost:2468/api/Score/UploadScore?data=", s));
+            StartCoroutine(PostRequest("http://localhost:2468/api/Score", s));
 
         }
     }
@@ -69,26 +67,18 @@ public class GlobalScript : MonoBehaviour
     {
 
         UnityWebRequest webRequest = UnityWebRequest.Get(url);
-
         yield return webRequest.SendWebRequest();
 
         Debug.Log(webRequest.downloadHandler.text);
 
     }
 
-    IEnumerator PostRequest(string url, Score score)
+    IEnumerator PostRequest(string url, Score newScore)
     {
-        WWWForm form = new WWWForm();
 
-
-        string data = JsonUtility.ToJson(score,true);
-        Debug.Log(data);
-        
-        form.AddField("data",data);
-
-        UnityWebRequest webRequest = UnityWebRequest.Post(url, form);
-
-        webRequest.method = "POST";
+        string score = JsonUtility.ToJson(newScore);
+        UnityWebRequest webRequest = UnityWebRequest.Put(url, score);
+       webRequest.SetRequestHeader("Content-Type", "application/json");
        
         yield return webRequest.SendWebRequest();
 
@@ -97,10 +87,11 @@ public class GlobalScript : MonoBehaviour
     }
 
     [Serializable]
-    public class Score
+    public class Score : object
     {
-        public string name { get; set; }
-        public float score { get; set; }
+
+        public string PlayerName = "Unity";
+        public float Score1 = 100f;
 
     }
 }
