@@ -9,6 +9,7 @@ public class PlaneBehavior : MonoBehaviour
     public GameObject BallSpawn;
     public GameObject DeadBalls;
     public GameObject BallQueue;
+    public GameObject Guide;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +32,7 @@ public class PlaneBehavior : MonoBehaviour
             other.gameObject.transform.position = DeadBalls.transform.position;
             other.gameObject.SetActive(false);
             other.gameObject.transform.SetParent(DeadBalls.transform);
+            Guide.SetActive(true);
         }
 
         if (other.gameObject.tag == "Ball" && gameObject.name == "BucketPlane")
@@ -39,6 +41,8 @@ public class PlaneBehavior : MonoBehaviour
             other.gameObject.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ | RigidbodyConstraints.FreezeRotation;
             other.gameObject.transform.position = BallSpawn.transform.position;
             other.gameObject.transform.SetParent(BallQueue.transform);
+            Guide.SetActive(true);
+
         }
     }
 
