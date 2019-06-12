@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,13 +12,17 @@ public class CannonBehavior : MonoBehaviour
     private GameObject Ball;
     public GameObject BallQueue;
     public GameObject Guide;
-   
+    public TextMesh BallCount;
+    public AudioSource LaunchBall;
+    public GameObject Perdiste;
+    private bool _end =  false;
+
 
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
-        
+        BallCount.text = "10";
     }
 
     // Update is called once per frame
@@ -40,12 +45,17 @@ public class CannonBehavior : MonoBehaviour
 
     public void ShootBall()
     {
-
-        if (Input.GetMouseButtonUp(0) && Guide.activeSelf)
+        if (BallQueue.transform.childCount <= 0)
         {
+            Perdiste.SetActive(true);
+            _end = true;
+        }
 
+        if (Input.GetMouseButtonUp(0) && Guide.activeSelf && !_end)
+        {
+            Debug.Log(BallQueue.transform.childCount);
             Guide.SetActive(false);
-            
+            BallCount.text = (Convert.ToInt32(BallCount.text) - 1).ToString();
 
             //If no children left game over.
             Ball = BallQueue.transform.GetChild(0).gameObject;
@@ -63,8 +73,11 @@ public class CannonBehavior : MonoBehaviour
 
             Ball.GetComponent<Rigidbody>().useGravity = true;
             Ball.SetActive(true);
+
+            LaunchBall.Play();
+
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            Ball.GetComponent<Rigidbody>().AddForce(ray.origin.x, 0, 0, ForceMode.Impulse);
+            Ball.GetComponent<Rigidbody>().AddForce(ray.origin.x * 1.2f, 0, 0, ForceMode.Impulse);
 
 
             

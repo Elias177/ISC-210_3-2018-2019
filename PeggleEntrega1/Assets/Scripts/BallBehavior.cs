@@ -12,8 +12,7 @@ public class BallBehavior : MonoBehaviour
     private int cont;
     private int OldScore;
     private int NewScore;
-
-    public GameObject Head;
+    
 
     public TextMesh Score;
 
@@ -22,14 +21,25 @@ public class BallBehavior : MonoBehaviour
     private Vector3 TextPosition;
 
     private List<GameObject> TouchPegs = new List<GameObject>();
-    
+
+    public GameObject PlayScore;
+
+    private int barIncrement = 1;
+
+    public AudioSource PegCollison;
+    private int multiplier = 0;
+
+    public GameObject PeggArray;
+
+
     // Start is called before the first frame update
     void Awake()
     {
         _ball = GetComponent<Rigidbody>();
         OldScore = 0;
         NewScore = 0;
-}
+
+    }
 
     // Update is called once per frame
     void Update()
@@ -41,28 +51,42 @@ public class BallBehavior : MonoBehaviour
     {
         if (collision.gameObject.tag == "Peg")
         {
+                   
+
+
             TouchPegs.Add(collision.gameObject);
             NewScore += 10;
-            Debug.Log(NewScore);
 
             DisplayScore.SetActive(true);
             TextPosition = collision.gameObject.transform.position;
             DisplayScore.transform.position = TextPosition;
             StartCoroutine(DisplayText());
-
-
+            
+            PegCollison.Play();
+            PegCollison.pitch = PegCollison.pitch + 0.1f;
+            
         }
 
 
     }
 
+
     void OnTriggerEnter(Collider collision)
     {
+
+        if (collision.gameObject.name == "ScorePlane")
+        {
+            PlayScore.GetComponent<TextMesh>().text = NewScore + " x " + TouchPegs.Count + "\n\t" + NewScore * TouchPegs.Count;
+            PlayScore.SetActive(true);
+            StartCoroutine(DisplayPlayText());
+        }
+
         if (collision.gameObject.tag == "KillPlane" || collision.gameObject.name == "BucketPlane")
         {
-            OldScore = Convert.ToInt32(Score.text) + NewScore;
+            OldScore = Convert.ToInt32(Score.text) + (NewScore* TouchPegs.Count);
             SetCountText(OldScore);
-            Debug.Log(OldScore + " Old");
+
+          
 
             foreach (var peg in TouchPegs)
             {
@@ -71,8 +95,15 @@ public class BallBehavior : MonoBehaviour
 
             TextPosition = collision.gameObject.transform.position;
             DisplayScore.transform.position = TextPosition;
-            StartCoroutine(DisplayText());
 
+            if(gameObject.activeSelf)
+            StartCoroutine(DisplayText());
+            
+         
+          
+            TouchPegs.Clear();
+            PeggArray.SendMessage("CheckOrange");
+            PegCollison.pitch = 1;
         }
 
     }
@@ -82,6 +113,14 @@ public class BallBehavior : MonoBehaviour
         yield return new WaitForSeconds(.8f);
 
         DisplayScore.SetActive(false);
+    }
+
+    private IEnumerator DisplayPlayText()
+    {
+        yield return new WaitForSeconds(.8f);
+
+        PlayScore.SetActive(false);
+
     }
 
 

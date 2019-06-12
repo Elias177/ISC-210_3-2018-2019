@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
@@ -10,6 +11,7 @@ public class PlaneBehavior : MonoBehaviour
     public GameObject DeadBalls;
     public GameObject BallQueue;
     public GameObject Guide;
+    public TextMesh BallCount;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +44,7 @@ public class PlaneBehavior : MonoBehaviour
             other.gameObject.transform.position = BallSpawn.transform.position;
             other.gameObject.transform.SetParent(BallQueue.transform);
             Guide.SetActive(true);
+            BallCount.text = (Convert.ToInt32(BallCount.text) + 1).ToString();
 
         }
     }
