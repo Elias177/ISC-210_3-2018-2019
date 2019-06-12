@@ -10,6 +10,7 @@ public class CannonBehavior : MonoBehaviour
     private Vector2 _offsetPoints;
     private GameObject Ball;
     public GameObject BallQueue;
+    public GameObject Guide;
    
 
 
@@ -40,8 +41,12 @@ public class CannonBehavior : MonoBehaviour
     public void ShootBall()
     {
 
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) && Guide.activeSelf)
         {
+
+            Guide.SetActive(false);
+            
+
             //If no children left game over.
             Ball = BallQueue.transform.GetChild(0).gameObject;
             Ball.transform.SetParent(gameObject.transform.GetChild(0));
@@ -49,6 +54,8 @@ public class CannonBehavior : MonoBehaviour
             Ball.transform.position = gameObject.transform.GetChild(0).transform.position;
             Ball.GetComponent<Rigidbody>().useGravity = false;
             Ball.SetActive(false);
+
+
 
             Ball.transform.SetParent(null);
             Ball.GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
@@ -58,6 +65,8 @@ public class CannonBehavior : MonoBehaviour
             Ball.SetActive(true);
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             Ball.GetComponent<Rigidbody>().AddForce(ray.origin.x, 0, 0, ForceMode.Impulse);
+
+
             
         }
     }
