@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ball
   - KillPlane
+  - Peg
   layers:
   - Default
   - TransparentFX
