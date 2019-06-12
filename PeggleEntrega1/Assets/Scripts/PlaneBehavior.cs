@@ -13,6 +13,7 @@ public class PlaneBehavior : MonoBehaviour
     public GameObject Guide;
     public TextMesh BallCount;
 
+    public AudioSource Woosh;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +47,7 @@ public class PlaneBehavior : MonoBehaviour
             Guide.SetActive(true);
             BallCount.text = (Convert.ToInt32(BallCount.text) + 1).ToString();
 
+            Woosh.Play();
         }
     }
 
