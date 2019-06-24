@@ -37,10 +37,10 @@ public class BoatPlayerBehavior : MonoBehaviour
 
         }
 
-        if (cycle >= 3)
+        if (cycle >= 5)
             SpikeHit = false;
 
-        Debug.Log(SpikeHit);
+        Debug.Log(cycle);
 
     }
 
@@ -67,13 +67,16 @@ public class BoatPlayerBehavior : MonoBehaviour
 
 
             gameObject.GetComponent<SpriteRenderer>().enabled = false;
-
-            yield return new WaitForSeconds(3);
-            gameObject.GetComponent<SpriteRenderer>().enabled = true;
-
+            animator.enabled = false;
             cycle++;
 
-        
+            yield return new WaitForSeconds(2);
+            gameObject.GetComponent<SpriteRenderer>().enabled = true;
+            animator.enabled = true;
+
+
+
+
 
     }
 
