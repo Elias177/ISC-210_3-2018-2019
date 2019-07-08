@@ -8,4 +8,10 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/Scenes/Tavern.unity
+    guid: a6fa21c4462fa3646a213bb1791ad2c2
+  - enabled: 1
+    path: Assets/Scenes/BreakOut.unity
+    guid: 582773efb9164814f9fd60e0fb191407
   m_configObjects: {}

@@ -11,6 +11,15 @@ TagManager:
   - Red
   - Yellow
   - Enemy
+  - DeadZone
+  - Wall
+  - ArkBall
+  - BottomRow
+  - MiddleBottomRow
+  - MiddleRow
+  - TopRow
+  - MiddleTopRow
+  - PowerUp
   layers:
   - Default
   - TransparentFX
