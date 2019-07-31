@@ -20,6 +20,7 @@ TagManager:
   - TopRow
   - MiddleTopRow
   - PowerUp
+  - Floor
   layers:
   - Default
   - TransparentFX

@@ -9,9 +9,27 @@ EditorBuildSettings:
     path: 
     guid: 00000000000000000000000000000000
   - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 16ad6fb8b61dc484e8729be5b407750f
+  - enabled: 1
     path: Assets/Scenes/Tavern.unity
     guid: a6fa21c4462fa3646a213bb1791ad2c2
   - enabled: 1
+    path: Assets/Scenes/Village.unity
+    guid: a63107b943343284cbadeab7d2fb82ce
+  - enabled: 1
+    path: Assets/Scenes/Exploration.unity
+    guid: 678afd45fe1955546b4163e9a0c3958d
+  - enabled: 1
+    path: Assets/Scenes/Platformer.unity
+    guid: 85327bd6edc730940a52292a67e44d84
+  - enabled: 1
     path: Assets/Scenes/BreakOut.unity
     guid: 582773efb9164814f9fd60e0fb191407
+  - enabled: 1
+    path: Assets/Scenes/Essence.unity
+    guid: 727dbb48d260602439636b025a783516
+  - enabled: 1
+    path: Assets/Scenes/Pong.unity
+    guid: e791c361c4d2ce2458cc76bb89adadcd
   m_configObjects: {}

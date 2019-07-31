@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<level>
+  <map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="72" height="40" tilewidth="128" tileheight="128" infinite="0" nextlayerid="3" nextobjectid="1">
+
+
+    <row><![CDATA[AAAJJJAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[AAAJBJAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[AAAKHKAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[AAAADAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[AAAADAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[AAAADAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[AAAADAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[AAAADAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[AAAADAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[AAAADAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[AAAAGEEEEEEEEEEEEEEA]]></row>
+	<row><![CDATA[AAAADAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[AAAADAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[AAAADAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[AAAADAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[AAAADAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[AAAADAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[AAAADAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[CEEEFAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[AAAAAAAAAAAAAAAAAAAA]]></row>
+	
+
+  </map>
+
+  <characters>
+    <character id="1" uniqueObjectName="Soldier1" prefabName="Soldier" posX="2" posY="12" tag="Enemy"/>
+    <character id="2" uniqueObjectName="Soldier2" prefabName="Soldier" posX="9" posY="2" tag="Enemy"/>
+    <character id="3" uniqueObjectName="Soldier3" prefabName="Soldier" posX="5" posY="15" tag="Enemy"/>
+    <character id="4" uniqueObjectName="Soldier4" prefabName="Soldier" posX="8" posY="19" tag="Enemy"/>
+    <character id="5" uniqueObjectName="Soldier5" prefabName="Soldier" posX="3" posY="10" tag="Enemy"/>
+  </characters>
+
+  <items>
+    <item id="6" uniqueObjectName="CaveEntrance" prefabName="CaveEntrance" posX="" posY="" tag="">
+   </item>
+  </items>
+
+  <missions>
+    <mission id="1" description="Entrar a la cueva donde esta guardado el cafe." prerequisites="">
+      <tasks>
+
+        <task id="1A" description="Hablar con Morah"  prerequisites="">
+          <conditions>
+            <condition type="CloseTo" uniqueObjectNameFrom="Player" uniqueObjectNameTo="Morah"/>
+            <condition type="KeyPressed" uniqueObjectNameFrom="Submit" uniqueObjectNameTo=""/>
+          </conditions>
+
+          <actions>
+            <action type="ShowMessage" uniqueObjectNameFrom="Menol hazte util y buscame un cafesito que deje en mi cueva donde por alguna razon guardo mi cafe ahi. No preguntes." uniqueObjectNameTo=""/>
+          </actions>
+          
+        </task>
+
+
+        <task id="1B" description="Ir a la cueva."  prerequisites="1A">
+          <conditions>
+              <condition type="CloseTo" uniqueObjectNameFrom="Player" uniqueObjectNameTo="CaveEntrance"/>
+          </conditions>
+
+          <actions>
+            <action type="ShowMessage" uniqueObjectNameFrom="...Aja po ta cerra deja volver pa donde el tagiel." uniqueObjectNameTo=""/>
+          </actions>
+
+         </task>
+
+        <task id="1C" description="Volver a hablar con Morah"  prerequisites="1B">
+          <conditions>
+            <condition type="CloseTo" uniqueObjectNameFrom="Player" uniqueObjectNameTo="Morah"/>
+            <condition type="KeyPressed" uniqueObjectNameFrom="Submit" uniqueObjectNameTo=""/>
+          </conditions>
+
+          <actions>
+            <action type="ShowMessage" uniqueObjectNameFrom="A velda se me perdio la llave ayer cuando llegue del colmadon habla con Lionel el dueño del colmadon que seguro el sabe klk" uniqueObjectNameTo=""/>
+          </actions>
+          
+        </task>
+
+        <task id="1D" description="Hablar con Lionel"  prerequisites="1C">
+          <conditions>
+            <condition type="CloseTo" uniqueObjectNameFrom="Player" uniqueObjectNameTo="Lionel"/>
+            <condition type="KeyPressed" uniqueObjectNameFrom="Submit" uniqueObjectNameTo=""/>
+          </conditions>
+
+          <actions>
+            <action type="ShowMessage" uniqueObjectNameFrom="Saludos si tu supiera que vinieron unos atracadores en un motor CG y se llevaron la llave." uniqueObjectNameTo=""/>
+          </actions>
+          
+        </task>
+
+        <task id="1E" description="Matar un bandido"  prerequisites="1D">
+          <conditions>
+            <condition type="Destroyed" uniqueObjectNameFrom="Player" uniqueObjectNameTo="Enemy1"/>
+          </conditions>
+
+          <actions>
+            <action type="InventoryAdd" uniqueObjectNameFrom="Key1" uniqueObjectNameTo=""/>
+            <action type="ShowMessage" uniqueObjectNameFrom="Has conseguido la llave." uniqueObjectNameTo=""/>
+          </actions>
+          
+        </task>
+        <task id="1F" description="Volver a la cueva."  prerequisites="1E">
+          <conditions>
+            <condition type="CloseTo" uniqueObjectNameFrom="Player" uniqueObjectNameTo="CaveEntrance"/>
+            <condition type="Inventoried" uniqueObjectNameFrom="Key1" uniqueObjectNameTo=""/>
+          </conditions>
+
+          <actions>
+            <action type="LoadScene" uniqueObjectNameFrom="Platformer" uniqueObjectNameTo=""/>
+          </actions>
+          
+        </task>
+
+      </tasks>
+    </mission>
+  </missions>
+
+</level>

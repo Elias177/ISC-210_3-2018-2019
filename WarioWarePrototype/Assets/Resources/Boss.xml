@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<level>
+  <map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="72" height="40" tilewidth="128" tileheight="128" infinite="0" nextlayerid="3" nextobjectid="1">
+
+
+    
+	<row><![CDATA[BBBBBBBBBBBBBBBBBBBB]]></row>
+	<row><![CDATA[BBBBBBBBBBCCCCCCCCCB]]></row>
+	<row><![CDATA[BAAAAAAAAACCCCCCCCCB]]></row>
+	<row><![CDATA[BABBBBBBBBCCCCCCCCCB]]></row>
+	<row><![CDATA[BABBBBBBBBCCCCCCCCCB]]></row>
+	<row><![CDATA[BABBBBBBBBCCCCCCCCCB]]></row>
+	<row><![CDATA[BAAAAABBBBCCCCCCCCCB]]></row>
+	<row><![CDATA[BBBBBABBBBBBBCCBBBBB]]></row>
+	<row><![CDATA[BBBBBABBBBBBBCCBBBBB]]></row>
+	<row><![CDATA[BBBBBABBBBBBBCCBBBBB]]></row>
+	<row><![CDATA[BBAAAABBBBBBBCCCCCCB]]></row>
+	<row><![CDATA[BBABBBBBBBBBBCCCCCCB]]></row>
+	<row><![CDATA[BBABBBBBBBBBBBBBBCCB]]></row>
+	<row><![CDATA[BBABBBBBBBBBBBBBBCCB]]></row>
+	<row><![CDATA[BBABBBBBBBBBBBBBBCCB]]></row>
+	<row><![CDATA[BBABBBBBBCCCCCCCCCCC]]></row>
+	<row><![CDATA[AAAAAABBBCCCCCCCCCCC]]></row>
+	<row><![CDATA[AAAAAABBBCCCCCCCCCCC]]></row>
+	<row><![CDATA[AAAAAABBBCCCCCCCCCCC]]></row>
+	<row><![CDATA[AAAAAABBBCCCCCCCCCCC]]></row>
+	
+
+  </map>
+
+  <characters>
+    <character id="0" uniqueObjectName="Player" prefabName="Player" posX="0" posY="19" tag="Player"/>
+    <character id="1" uniqueObjectName="Tank1" prefabName="TankBeige" posX="2" posY="12" tag="Enemy"/>
+    <character id="2" uniqueObjectName="Tank2" prefabName="TankBeige" posX="9" posY="2" tag="Enemy"/>
+    <character id="3" uniqueObjectName="Tank3" prefabName="TankBeige" posX="17" posY="2" tag="Enemy"/>
+    <character id="4" uniqueObjectName="Tank4" prefabName="TankBeige" posX="14" posY="11" tag="Enemy"/>
+    <character id="5" uniqueObjectName="Tank5" prefabName="TankBeige" posX="18" posY="17" tag="Enemy"/>
+    <character id="5" uniqueObjectName="Tank6" prefabName="TankBeige" posX="1" posY="7" tag="Enemy"/>
+    <character id="6" uniqueObjectName="Tank7" prefabName="TankBeige" posX="10" posY="16" tag="Enemy"/>
+  </characters>
+
+
+  <items>
+    <item id ="0" uniqueObjectName ="Sand1" prefabName ="sandBag2" posX ="0" posY ="15" tag="Prop"/>
+    <item id ="0" uniqueObjectName ="Sand2" prefabName ="sandBag2" posX ="1" posY ="15" tag="Prop"/>
+    <item id ="0" uniqueObjectName ="Sand3" prefabName ="sandBag2" posX ="3" posY ="15" tag="Prop"/>
+    <item id ="0" uniqueObjectName ="Sand4" prefabName ="sandBag2" posX ="4" posY ="15" tag="Prop"/>
+    <item id ="0" uniqueObjectName ="Sand5" prefabName ="sandBag2" posX ="5" posY ="15" tag="Prop"/>
+  </items>
+
+
+ 
+</level>

@@ -20,6 +20,7 @@ public class ScoreController : MonoBehaviour
     public TextMesh PurpleText;
     public TextMesh RedText;
     public TextMesh YellowText;
+    public AudioSource Pick;
 
 
 
@@ -39,6 +40,8 @@ public class ScoreController : MonoBehaviour
     {
         essenceScores[Tag]++;
 
+
+        Pick.Play();
         switch (Tag)
         {
             case "Blue":

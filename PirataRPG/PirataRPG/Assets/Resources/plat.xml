@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<level>
+  <map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="20" height="40" tilewidth="128" tileheight="128" infinite="0" nextlayerid="3" nextobjectid="1">
+
+
+    <row><![CDATA[AAAABAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[AAABAAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[AABAAAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[AAAAAAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[BBBBBBBBBAAAAAAAAAAA]]></row>
+	<row><![CDATA[AAAAAAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[AAAAAAAAAAAABBAAAAAA]]></row>
+	<row><![CDATA[AAAAAAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[AAAAAAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[AAAAAAAAAAAAAAAAAABB]]></row>
+	<row><![CDATA[AAAAAAAAAAAAAAABAAAA]]></row>
+	<row><![CDATA[AAAAAAAAAAABBAAAAAAA]]></row>
+	<row><![CDATA[AAAAAABBAAAAAAAAAAAA]]></row>
+	<row><![CDATA[AAAAAAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[BBBBBAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[AAAABBBBBBBBBAAAAAAA]]></row>
+	<row><![CDATA[AAAAAAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[AAAAAAAAAAAAAAAABAAA]]></row>
+	<row><![CDATA[AAAAAAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[AAAAAAABBBBBAAAAAAAA]]></row>
+	<row><![CDATA[AABBBAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[AAAAAAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[BBBBBBBBBBBBBBBBBBAA]]></row>
+	<row><![CDATA[AAAAAAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[AAAAAAAAAAAAAAAAAAAB]]></row>
+	<row><![CDATA[AAAAAAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[BBBBBBBBBBBBBBBBBBBB]]></row>
+	<row><![CDATA[AAAAAAAAAAAAAAAAAAAA]]></row>
+	<row><![CDATA[AAAAAAAAAAAAAAAAAAAA]]></row>
+
+
+  </map>
+
+  <characters>
+          <character id="0" uniqueObjectName="Player" prefabName="Player" posX="0" posY="25" tag="Player"/>
+		  <character id="1" uniqueObjectName="Mace" prefabName="Mace" posX="15" posY="25" tag="Enemy"/>
+
+  </characters>
+
+  
+
+</level>
